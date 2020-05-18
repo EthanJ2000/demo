@@ -1,7 +1,7 @@
 const initialState = {
   activeScreen: "Login",
   isAuthenticated: false,
-  accountHolder: "Ethan",
+  accountHolder: "",
 };
 
 const authReducer = (authState = initialState, action) => {

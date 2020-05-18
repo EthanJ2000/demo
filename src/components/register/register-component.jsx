@@ -2,13 +2,40 @@ import React, { useState } from "react";
 import "./register-styles.scss";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Label, Input, Col, Row } from "reactstrap";
+import { fire, db } from "../../firebase/firebase";
 
-const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
+const Register = ({ switchScreen, authenticate }) => {
   const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const onFormSubmit = () => {
-    setAccountHolder(name);
-    authenticate();
+    if (password === confirmPassword) {
+      if (isChecked) {
+        register();
+      } else {
+        alert("Please check the box.");
+      }
+    } else {
+      alert("The passwords do not match.");
+    }
+  };
+
+  const register = () => {
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(authenticate())
+      .then(
+        db.collection(email).doc("profile").set({
+          name,
+          surname,
+        })
+      )
+      .catch((err) => alert(err));
   };
 
   const onLoginClicked = () => {
@@ -22,7 +49,7 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
         We're glad you're joininging Africann! Let's get started:
       </p>
 
-      <Form onSubmit={() => onFormSubmit()} className="register-form-container">
+      <Form className="register-form-container">
         <Row form>
           <Col md={6}>
             <FormGroup>
@@ -52,6 +79,7 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
                 id="surname"
                 placeholder="Your surname"
                 required
+                onChange={(e) => setSurname(e.target.value)}
               />
             </FormGroup>
           </Col>
@@ -67,6 +95,7 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
             id="email"
             placeholder="email@email.com"
             required
+            onChange={(e) => setEmail(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -80,6 +109,7 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
             id="password"
             placeholder="Password"
             required
+            onChange={(e) => setPassword(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
@@ -93,10 +123,12 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
             id="confirmPassword"
             placeholder="Password"
             required
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </FormGroup>
         <Label check className="tc-checkbox">
-          <Input type="checkbox" /> I agree to the&nbsp;
+          <Input type="checkbox" onClick={() => setIsChecked(!isChecked)} /> I
+          agree to the&nbsp;
           <p style={{ textDecoration: "underline", cursor: "pointer" }}>
             Terms & Conditions
           </p>{" "}
@@ -110,6 +142,7 @@ const Register = ({ switchScreen, authenticate, setAccountHolder }) => {
           style={{ backgroundColor: "#54006E" }}
           size="lg"
           block
+          onClick={() => onFormSubmit()}
         >
           Register
         </Button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./homepage-styles.scss";
 import { connect } from "react-redux";
+import { fire } from "../../firebase/firebase";
 import {
   Dropdown,
   DropdownToggle,
@@ -17,9 +18,20 @@ import Manufacturers from "../../components/screens/manufacturers/manufacturers-
 import Importers from "../../components/screens/importers/importers-component";
 import Applications from "../../components/screens/applications/applications-component";
 
-const Homepage = ({ activeScreen, logout, accountHolder }) => {
+const Homepage = ({ activeScreen, setAuth, accountHolder }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+  const logout = () => {
+    fire
+      .auth()
+      .signOut()
+      .then(() => {
+        setAuth(false);
+      })
+      .catch((err) => alert(err));
+  };
+
   return (
     <div>
       <div className="home-header ">
@@ -71,8 +83,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => {
-      dispatch({ type: "set_auth_status", authenticated: false });
+    setAuth: (isAuth) => {
+      dispatch({ type: "set_auth_status", authenticated: isAuth });
     },
   };
 };

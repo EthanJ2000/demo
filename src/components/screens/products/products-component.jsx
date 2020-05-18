@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./products-styles.scss";
 
 import ProductSubheader from "../../product-subheader/product-subheader-component";
@@ -7,7 +7,7 @@ import ProductsCollection from "../../products-collection/products-collection-co
 import PRODUCT_DATA from "./product-data";
 
 const Products = () => {
-  const [collections, setCollections] = useState(PRODUCT_DATA);
+  const collections = PRODUCT_DATA;
   return (
     <div className="product-container">
       <ProductSubheader />

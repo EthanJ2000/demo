@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./login-styles.scss";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Label, Input, InputGroup } from "reactstrap";
+import { fire } from "../../firebase/firebase";
 
 const Login = ({ switchScreen, setAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setAuth();
+      }
+    });
+  }, []);
+
   const onFormSubmit = () => {
     if (email !== "" && password !== "") {
-      setAuth();
+      fire
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch((err) => alert(err));
     } else {
       alert("Please fill in all of your details");
     }
@@ -24,7 +36,7 @@ const Login = ({ switchScreen, setAuth }) => {
       <h1 className="login-title">Welcome Back</h1>
       <p className="login-subtitle">Please log into your account below</p>
 
-      <Form onSubmit={() => onFormSubmit()} className="login-form-container">
+      <Form className="login-form-container">
         <FormGroup>
           <Label className="input-label">Email</Label>
           <Input
@@ -62,6 +74,7 @@ const Login = ({ switchScreen, setAuth }) => {
           style={{ backgroundColor: "#54006E" }}
           size="lg"
           block
+          onClick={() => onFormSubmit()}
         >
           Log in
         </Button>
