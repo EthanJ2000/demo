@@ -1,0 +1,54 @@
+.product-filters {
+  box-shadow: 1px 1px 1px 2px #e8e8e8;
+  background-color: #f9f9f9;
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+
+  .dropdown-container {
+    display: flex;
+    margin-left: 1vw;
+    justify-content: space-between;
+    .dropdown {
+      width: 10vw;
+      height: 5vh;
+      font-size: 1vw;
+      outline: none !important;
+      box-shadow: none;
+      border-color: #d3d3d3;
+    }
+    .type {
+      width: 10vw;
+      font-size: 1.2vw;
+      margin-left: 2vw;
+    }
+    .format {
+      width: 10vw;
+      font-size: 1.2vw;
+    }
+    .manufacturer {
+      width: 10vw;
+      font-size: 1.2vw;
+    }
+    .price {
+      width: 10vw;
+      font-size: 1.2vw;
+    }
+    .status {
+      margin-right: 2vw;
+      font-size: 1.2vw;
+      width: 10vw;
+      .apply-filter-button {
+        padding: 1vh;
+        text-align: center;
+        font-size: 1.1vw;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        width: 10vw;
+        height: 7vh;
+        word-wrap: normal;
+      }
+    }
+  }
+}

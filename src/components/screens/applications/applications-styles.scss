@@ -1,0 +1,14 @@
+.applications-container {
+  position: absolute;
+  top: 0;
+  margin-top: 10vh;
+  margin-left: 15vw;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+
+  .applications-title {
+    margin-left: 5vw;
+    font-size: 2vw;
+  }
+}

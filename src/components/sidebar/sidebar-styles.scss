@@ -1,0 +1,60 @@
+.sidebar-container {
+  background-color: white;
+  height: 120vh;
+  width: 15vw;
+  box-shadow: 5px 1px 10px 1px #efefef;
+  overflow: hidden;
+
+  .logo {
+    cursor: pointer;
+    margin-left: 1.8vw;
+    width: 10vw;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+  }
+
+  .menu-item {
+    font-size: 1.1vw;
+    color: gray;
+    text-align: left;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vw;
+    display: flex;
+
+    &:hover {
+      background-color: #f2ffd9;
+      cursor: pointer;
+    }
+
+    .icon {
+      font-size: 1.5vw;
+      margin-right: 0.5vw;
+    }
+  }
+
+  .active {
+    color: #77b900;
+    background-color: #f2ffd9;
+    font-weight: 500;
+  }
+
+  .sidebar-footer {
+    font-size: 1vw;
+    bottom: 0;
+    position: absolute;
+    text-decoration: underline;
+    margin-left: 1.8vw;
+    color: #c4c4c4;
+
+    .footer-item {
+      margin-bottom: 1vh;
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 5vh;
+      }
+    }
+  }
+}

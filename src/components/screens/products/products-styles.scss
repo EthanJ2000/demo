@@ -1,0 +1,15 @@
+.product-container {
+  position: absolute;
+  top: 0;
+  margin-left: 15vw;
+  width: 85vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .products {
+    height: 100vh;
+    margin-top: 5vh;
+    margin-left: 5vh;
+  }
+}

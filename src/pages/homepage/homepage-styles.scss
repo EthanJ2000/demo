@@ -1,0 +1,29 @@
+.home-header {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #d7d7d7;
+  height: 6vh;
+  width: 85vw;
+  margin-left: 15vw;
+  box-shadow: 1px 1px 1px 1px #e3e3e3;
+
+  .account-holder {
+    height: 6vh;
+    text-align: end;
+    margin-right: 3vw;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .dropdown {
+      font-size: 1.1vw;
+      height: 6vh;
+      margin-right: 5vw;
+      padding: 0;
+      outline: none !important;
+      box-shadow: none;
+    }
+  }
+}

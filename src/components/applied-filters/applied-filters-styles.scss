@@ -1,0 +1,31 @@
+.applied-filters-container {
+  .applied-filters-title {
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-left: 3.5vw;
+  }
+
+  .filters-display {
+    margin-left: 3.5vw;
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    margin-top: 1vh;
+    .filter-item {
+      font-size: 1vw;
+      margin-right: 2vw;
+      background-color: #d7d7d7;
+      border-radius: 0.5vw;
+      width: auto;
+      height: 5vh;
+      text-align: center;
+      padding: 0.5vw;
+
+      .close {
+        cursor: pointer;
+        font-size: medium;
+        float: right;
+      }
+    }
+  }
+}

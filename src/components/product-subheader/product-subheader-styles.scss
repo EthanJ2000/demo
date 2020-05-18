@@ -1,0 +1,52 @@
+.product-subheader {
+  padding-top: 3.5vh;
+  padding-bottom: 3.5vh;
+  padding-left: 3vw;
+  margin-top: 6vh;
+  height: 12vh;
+  display: flex;
+
+  .title {
+    font-size: 1.5vw;
+  }
+
+  .product-subheader-filters {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .add-button {
+      font-size: 1vw;
+      width: 10vw;
+      height: 6vh;
+      margin-right: 3vw;
+      //
+      padding: 1vh;
+      text-align: center;
+      font-size: 1.1vw;
+      word-wrap: normal;
+    }
+
+    .searchbar {
+      font-size: 1vw;
+      width: 20vw;
+      height: 6vh;
+      margin-right: 3vw;
+    }
+
+    .switch-container {
+      display: flex;
+      height: 6vh;
+      padding: 1vh;
+      margin-bottom: 1vh;
+
+      .switch-label {
+        padding: 1;
+        text-align: center;
+        font-size: 1vw;
+        word-wrap: normal;
+        margin-right: 1vw;
+      }
+    }
+  }
+}

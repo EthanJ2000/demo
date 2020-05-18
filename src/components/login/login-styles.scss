@@ -1,0 +1,47 @@
+.login-container {
+  margin-top: 2vh;
+  margin-left: 3.5vw;
+  overflow-y: auto;
+  .login-title {
+    font-size: 1.5vw;
+  }
+  .login-subtitle {
+    font-size: 1vw;
+  }
+
+  .login-form-container {
+    width: 40vw;
+    padding-bottom: 1vh;
+
+    .input-label {
+      font-weight: 600;
+      font-size: 1.2vw;
+    }
+    .login-inputs {
+      font-size: 1.2vw;
+    }
+
+    .form-footer-container {
+      display: flex;
+      justify-content: space-between;
+
+      .checkbox-label {
+        font-size: 1vw;
+        margin-left: 1.5vw;
+      }
+
+      .forgot-password {
+        font-size: 1vw;
+        text-align: end;
+        cursor: pointer;
+      }
+    }
+    .login-button {
+      background-color: "#8AC543";
+      margin-top: 10vh;
+      height: 8vh;
+      width: 40vw;
+      padding: 1vh;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.register-container {
+  margin-top: 2vh;
+  margin-left: 3.5vw;
+  overflow-y: auto;
+  .register-title {
+    font-size: 1.5vw;
+  }
+  .register-subtitle {
+    font-size: 1vw;
+  }
+
+  .register-form-container {
+    width: 40vw;
+
+    .input-label {
+      font-size: 1.2vw;
+      font-weight: 600;
+    }
+    .register-inputs {
+      font-size: 1.2vw;
+    }
+
+    .tc-checkbox {
+      display: flex;
+      width: 40vw;
+      margin-left: 1.5vw;
+    }
+  }
+}
